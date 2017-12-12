@@ -42,6 +42,7 @@ export declare class MultiselectDropdown implements OnInit, OnChanges, DoCheck, 
     defaultTexts: IMultiSelectTexts;
     readonly searchLimit: number;
     readonly searchRenderAfter: number;
+    readonly selectedNameClasses: string;
     readonly searchLimitApplied: boolean;
     private _isVisible;
     private _workerDocClicked;

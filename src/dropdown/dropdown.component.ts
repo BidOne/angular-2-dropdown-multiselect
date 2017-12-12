@@ -116,6 +116,7 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
     checkedStyle: 'checkboxes',
     buttonClasses: 'btn btn-default btn-secondary',
     containerClasses: 'dropdown-inline',
+    selectedNameClasses: '',
     selectionLimit: 0,
     minSelectionLimit: 0,
     closeOnSelect: false,
@@ -149,6 +150,10 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
 
   get searchRenderAfter() {
     return this.settings.searchRenderAfter;
+  }
+
+  get selectedNameClasses() {
+    return this.settings.selectedNameClasses;
   }
 
   get searchLimitApplied() {
@@ -402,8 +407,13 @@ export class MultiselectDropdown implements OnInit, OnChanges, DoCheck, OnDestro
         .filter((option: IMultiSelectOption) =>
           this.model.indexOf(option.id) > -1
         )
-        .map((option: IMultiSelectOption) => option.name)
-        .join(', ');
+        .map((option: IMultiSelectOption) => {
+          if (this.selectedNameClasses) {
+            return '<span class="' + this.selectedNameClasses + '">' + option.name + '</span>'
+          }
+          return option.name
+        })
+        .join(this.selectedNameClasses ? '' : ', ');
     } else {
       this.title = this.numSelected
         + ' '

@@ -1,5 +1,5 @@
 <div class="dropdown" [ngClass]="settings.containerClasses" [class.open]="isVisible">
-  <button type="button" class="dropdown-toggle" [ngClass]="settings.buttonClasses" (click)="toggleDropdown()" [disabled]="disabled">{{ title }}<span class="caret"></span></button>
+  <button type="button" class="dropdown-toggle" [ngClass]="settings.buttonClasses" (click)="toggleDropdown()" [disabled]="disabled" [innerHTML]="title"><span class="caret"></span></button>
   <ul #scroller *ngIf="isVisible" class="dropdown-menu"
       [ngClass] = "{'chunkydropdown-menu': settings.checkedStyle == 'visual' }"
       (scroll)="settings.isLazyLoad ? checkScrollPosition($event) : null"

@@ -33,6 +33,7 @@ export interface IMultiSelectSettings {
      */
     searchMaxRenderedItems?: number;
     checkedStyle?: 'checkboxes' | 'glyphicon' | 'fontawesome';
+    selectedNameClasses?: string;
     buttonClasses?: string;
     itemClasses?: string;
     containerClasses?: string;
